@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gideon Kipkosgei Kitum | Electrical & Automation Engineer</title>
+<meta name="description" content="Electrical & Automation Engineer specializing in power systems, industrial automation, and maintenance optimization. Based in Nairobi, Kenya. 37% uptime improvement. 25% energy reduction.">
+<meta name="keywords" content="Electrical Engineer Kenya, PLC SCADA Engineer Nairobi, Industrial Automation, Power Systems, Maintenance Engineer, Siemens Allen-Bradley">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0D14;
+    --bg2: #0F1420;
+    --bg3: #141A2E;
+    --accent: #00E5FF;
+    --accent2: #F5A623;
+    --accent3: #39FF14;
+    --text: #E8EDF5;
+    --text-muted: #7A8AA0;
+    --border: rgba(0,229,255,0.15);
+    --card: rgba(15,20,32,0.8);
+    --font-display: 'Syne', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --font-body: 'Lato', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─────────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ─── NAV ────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,13,20,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ─── GRID LINES ─────────────────────────────────────── */
+  .grid-lines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  /* ─── SECTIONS ───────────────────────────────────────── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ─── HERO ───────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8rem;
+    max-width: 100%;
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-name span {
+    display: block;
+    background: linear-gradient(135deg, var(--accent) 0%, #0080FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-role {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: var(--text);
+    max-width: 620px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .stat {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.2rem;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.3rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .btn-primary {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 500;
+    transition: all 0.25s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  }
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0,229,255,0.4);
+  }
+
+  .btn-outline {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    border: 1px solid var(--border);
+    color: var(--text);
+    transition: all 0.25s;
+  }
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeUp 1s 1s ease both;
+  }
+  .hero-scroll span {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ─── SECTION HEADERS ─────────────────────────────────── */
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-bottom: 4rem;
+  }
+
+  /* ─── ABOUT ───────────────────────────────────────────── */
+  #about { background: var(--bg2); max-width: 100%; }
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-text p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 1.05rem; }
+  .about-text p strong { color: var(--text); }
+
+  .about-sidebar {}
+
+  .about-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  }
+
+  .about-card h4 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .about-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .values-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .values-list li {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .values-list li::before {
+    content: '◆';
+    color: var(--accent);
+    font-size: 0.5rem;
+  }
+
+  /* ─── SKILLS ─────────────────────────────────────────── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-category {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .skill-category:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .skill-cat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-cat-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--text);
+  }
+
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .skill-list li {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .skill-list li::before {
+    content: '//';
+    color: var(--accent);
+    opacity: 0.6;
+  }
+
+  /* ─── PROJECTS ───────────────────────────────────────── */
+  #projects { background: var(--bg2); max-width: 100%; }
+  .projects-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem 4rem;
+  }
+
+  .project-case {
+    background: var(--card);
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .project-case:hover { border-color: var(--accent); }
+
+  .project-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-number {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-tagline {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .project-badge {
+    background: rgba(0,229,255,0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .project-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+
+  .project-col {
+    padding: 2.5rem 3rem;
+    border-right: 1px solid var(--border);
+  }
+  .project-col:last-child { border-right: none; }
+
+  .project-col h5 {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .project-col p, .project-col li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .project-col ul { list-style: none; }
+  .project-col ul li { margin-bottom: 0.4rem; display: flex; gap: 0.6rem; }
+  .project-col ul li::before { content: '→'; color: var(--accent2); flex-shrink: 0; }
+
+  .result-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .metric {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .metric-num {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent3);
+    line-height: 1;
+  }
+  .metric-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.25rem 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── EXPERIENCE ─────────────────────────────────────── */
+  .exp-timeline {
+    position: relative;
+    padding-left: 3rem;
+  }
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .exp-item {
+    position: relative;
+    margin-bottom: 4rem;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -3rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0,229,255,0.6);
+    transform: translateX(-50%);
+  }
+
+  .exp-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-company {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .exp-duration {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    background: rgba(0,229,255,0.08);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.7rem;
+  }
+
+  .exp-role {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .exp-achievements { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .exp-achievements li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 0.8rem;
+    line-height: 1.6;
+  }
+  .exp-achievements li::before {
+    content: '▸';
+    color: var(--accent2);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .exp-achievements strong { color: var(--text); }
+
+  /* ─── TOOLS ─────────────────────────────────────────── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .tool-chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1.2rem;
+    text-align: center;
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .tool-chip:hover {
+    border-color: var(--accent);
+    background: rgba(0,229,255,0.05);
+    transform: translateY(-3px);
+  }
+
+  .tool-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+  .tool-name {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── CERTS ─────────────────────────────────────────── */
+  #certs { background: var(--bg2); max-width: 100%; }
+  .certs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem 4rem;
+  }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .cert-card:hover { border-color: var(--accent2); transform: translateY(-4px); }
+
+  .cert-card::after {
+    content: '✓';
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    color: var(--accent3);
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .cert-issuer {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .cert-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .cert-year {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* ─── CONTACT ───────────────────────────────────────── */
+  #contact {
+    text-align: center;
+    padding: 8rem 4rem;
+  }
+
+  .contact-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-headline span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .contact-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 0 auto 3rem;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .contact-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.2rem;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ─── FOOTER ────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer p {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── DIVIDER ───────────────────────────────────────── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ─── ANIMATIONS ────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ─── RESPONSIVE ────────────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2rem; }
+    #hero { padding-left: 2rem; padding-right: 2rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .project-body { grid-template-columns: 1fr; }
+    .project-col { border-right: none; border-bottom: 1px solid var(--border); }
+    .project-header { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+    .projects-inner, .certs-inner { padding: 5rem 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-lines"></div>
+
+<!-- ═══════════════════════════════════════════════════ NAV -->
+<nav>
+  <div class="nav-logo">GKK // Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════ HERO -->
+<section id="hero">
+  <div class="hero-eyebrow">Electrical &amp; Automation Engineer — Nairobi, Kenya</div>
+  <h1 class="hero-name">
+    Gideon
+    <span>Kipkosgei Kitum</span>
+  </h1>
+  <p class="hero-role">Maintenance Lead &nbsp;·&nbsp; Power Systems &nbsp;·&nbsp; Industrial Automation</p>
+  <p class="hero-tagline">
+    I engineer reliability into critical infrastructure. From high-voltage switchgear to PLC-driven production lines,
+    I turn unplanned downtime and energy waste into measurable competitive advantage.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">37%</div>
+      <div class="stat-label">Production Uptime<br>Increase</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">30%</div>
+      <div class="stat-label">Downtime<br>Reduction</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">25%</div>
+      <div class="stat-label">Energy<br>Savings</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">HSE & LOTO<br>Compliance</div>
+    </div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View Case Studies</a>
+    <a href="#contact" class="btn-outline">Get In Touch</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ ABOUT -->
+<div id="about" style="background: var(--bg2); position: relative; z-index:1;">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-label">01 — About Me</div>
+      <h2 class="section-title">Engineering reliability, one system at a time.</h2>
+
+      <p>I didn't start my career wanting to maintain machines — I started it wanting to <strong>understand systems</strong>. That obsession with how things work, and more critically, why they fail, is what shaped me into the engineer I am today.</p>
+
+      <p>With <strong>3+ years of hands-on experience</strong> spanning high-voltage infrastructure, manufacturing automation, and utility operations, I've built a practice around one principle: <strong>predictive beats reactive</strong>. Every unplanned shutdown is a failure of foresight. Every energy spike is a clue waiting to be decoded.</p>
+
+      <p>At Parkside Development, I led a maintenance overhaul that eliminated 30% of recurring downtime — not by working harder, but by rethinking the entire maintenance workflow and embedding SCADA visibility where there was none. At Kim-Fay, I programmed PLC sequences that reduced changeover time and pushed production throughput past targets that had stood for years.</p>
+
+      <p>I am not just a technician who fixes things. I am an engineer who <strong>designs systems that don't need fixing</strong>. The 37% uptime improvement wasn't luck — it was the result of structured fault analysis, right-sized preventive schedules, and a team that knew what data to trust.</p>
+
+      <p>I hold a Bachelor's degree in Electrical & Electronics Engineering and am actively expanding into advanced SCADA architecture and Industry 4.0 integration. I believe Africa's industrial sector is at an inflection point, and I intend to be part of building its foundation.</p>
+    </div>
+
+    <div class="about-sidebar">
+      <div class="about-card">
+        <h4>📍 Location &amp; Availability</h4>
+        <p>Based in Nairobi, Kenya. Open to on-site, hybrid, and remote roles across East Africa and internationally.</p>
+      </div>
+      <div class="about-card">
+        <h4>🎓 Education</h4>
+        <p>B.Sc. Electrical &amp; Electronics Engineering<br>
+        <strong style="color: var(--text);">Kenya (Accredited Institution)</strong></p>
+      </div>
+      <div class="about-card">
+        <h4>🧭 Core Values</h4>
+        <ul class="values-list">
+          <li>Safety is non-negotiable, not aspirational</li>
+          <li>Data over intuition; intuition informed by data</li>
+          <li>Every system has a simpler solution</li>
+          <li>Continuous learning as professional practice</li>
+          <li>Results speak; documentation proves it</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h4>🌐 Languages</h4>
+        <p>English (Professional) &nbsp;·&nbsp; Swahili (Native)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ SKILLS -->
+<section id="skills">
+  <div class="section-label">02 — Skills &amp; Expertise</div>
+  <h2 class="section-title">What I bring to the table.</h2>
+  <p class="section-subtitle">A full-stack engineering toolkit built through real-world pressure — not just classroom theory.</p>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-cat-icon">⚡</div>
+      <div class="skill-cat-title">Automation &amp; Control</div>
+      <ul class="skill-list">
+        <li>PLC Programming — Siemens S7, Allen-Bradley</li>
+        <li>HMI Design &amp; Configuration (Mitsubishi)</li>
+        <li>SCADA System Integration &amp; Monitoring</li>
+        <li>Process Automation &amp; Loop Control</li>
+        <li>Variable Frequency Drives (VFD)</li>
+        <li>Industrial Networking (Profibus, Ethernet/IP)</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-icon">🔌</div>
+      <div class="skill-cat-title">Power Systems</div>
+      <ul class="skill-list">
+        <li>HV/MV Switchgear &amp; Protection Relays</li>
+        <li>Transformer Installation &amp; Maintenance</li>
+        <li>Air Circuit Breakers (ACB) &amp; MCCBs</li>
+        <li>Automatic Voltage Regulation (AVR)</li>
+        <li>Power Factor Correction</li>
+        <li>Load Flow &amp; Fault Analysis (ETAP)</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-icon">🔧</div>
+      <div class="skill-cat-title">Maintenance Engineering</div>
+      <ul class="skill-list">
+        <li>Predictive Maintenance (Vibration, Thermography)</li>
+        <li>CMMS Management — IFS Platform</li>
+        <li>Root Cause Analysis (RCA)</li>
+        <li>Preventive Maintenance Scheduling</li>
+        <li>Condition-Based Monitoring (CBM)</li>
+        <li>Spare Parts Optimization</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-icon">📐</div>
+      <div class="skill-cat-title">Design &amp; Engineering Tools</div>
+      <ul class="skill-list">
+        <li>AutoCAD Electrical (Panel &amp; Schematic Design)</li>
+        <li>MATLAB / Simulink (Simulation)</li>
+        <li>ETAP (Power System Analysis)</li>
+        <li>MS Project (Maintenance Planning)</li>
+        <li>Single Line Diagram (SLD) Development</li>
+        <li>Electrical Installation Design</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-icon">⚙️</div>
+      <div class="skill-cat-title">Energy &amp; Utilities</div>
+      <ul class="skill-list">
+        <li>Energy Audit &amp; Consumption Analysis</li>
+        <li>Compressed Air System Optimization</li>
+        <li>Cooling &amp; HVAC Utility Management</li>
+        <li>Generator &amp; UPS Systems</li>
+        <li>Peak Load Management Strategies</li>
+        <li>Renewable Integration Awareness</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-icon">🛡️</div>
+      <div class="skill-cat-title">Safety &amp; Compliance</div>
+      <ul class="skill-list">
+        <li>HSE Management Systems (ISO 45001)</li>
+        <li>LOTO (Lockout/Tagout) Procedures</li>
+        <li>Arc Flash Hazard Analysis</li>
+        <li>PTW (Permit-to-Work) Systems</li>
+        <li>Safety Audits &amp; Risk Assessments</li>
+        <li>Team Safety Training &amp; Briefings</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ PROJECTS -->
+<div id="projects" style="background: var(--bg2); position: relative; z-index:1;">
+  <div class="projects-inner">
+    <div class="section-label">03 — Featured Case Studies</div>
+    <h2 class="section-title">Problems solved. Results delivered.</h2>
+    <p class="section-subtitle">Three engineering interventions that changed the trajectory of production reliability and energy performance.</p>
+
+    <!-- PROJECT 01 -->
+    <div class="project-case">
+      <div class="project-header">
+        <div>
+          <div class="project-number">// PROJECT 01</div>
+          <h3 class="project-title">ACB Installation &amp; Power Distribution Optimization</h3>
+          <p class="project-tagline">Redesigning power flow architecture to eliminate cascading trip faults and improve load resilience</p>
+        </div>
+        <div class="project-badge">Power Systems</div>
+      </div>
+      <div class="project-body">
+        <div class="project-col">
+          <h5>// The Problem</h5>
+          <p>The facility was experiencing recurring cascade trips across distribution panels, causing unplanned full-plant shutdowns averaging 4 hours per event. The existing Air Circuit Breakers were undersized for actual load demand, protection relay coordination was absent, and there was no discriminative selectivity between upstream and downstream breakers. Each fault was propagating upstream instead of isolating at the nearest protection point.</p>
+        </div>
+        <div class="project-col">
+          <h5>// Approach &amp; Execution</h5>
+          <ul>
+            <li>Conducted full load audit and fault level calculation using ETAP</li>
+            <li>Designed ACB rating and protection relay coordination scheme</li>
+            <li>Specified and installed correctly rated ACBs with LSIG protection</li>
+            <li>Programmed zone-selective interlocking (ZSI) between breakers</li>
+            <li>Implemented bus-tie arrangement for redundancy during maintenance</li>
+            <li>Commissioned with phased energisation and protection testing</li>
+          </ul>
+        </div>
+        <div class="project-col">
+          <h5>// Quantified Results</h5>
+          <div class="result-metrics">
+            <div class="metric">
+              <span class="metric-num">100%</span>
+              <span class="metric-desc">Elimination of cascade trips post-commissioning</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">4hrs</span>
+              <span class="metric-desc">Average outage duration eliminated per event</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">↑37%</span>
+              <span class="metric-desc">Improvement in overall production uptime</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">0</span>
+              <span class="metric-desc">Arc flash incidents since commissioning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tags-row">
+        <span class="tag">ETAP</span>
+        <span class="tag">ACB / LSIG Protection</span>
+        <span class="tag">Zone Selective Interlocking</span>
+        <span class="tag">Protection Relay Coordination</span>
+        <span class="tag">AutoCAD Electrical</span>
+        <span class="tag">Load Flow Analysis</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 02 -->
+    <div class="project-case">
+      <div class="project-header">
+        <div>
+          <div class="project-number">// PROJECT 02</div>
+          <h3 class="project-title">Automatic Voltage Regulator (AVR) System Implementation</h3>
+          <p class="project-tagline">Deploying closed-loop voltage stabilisation to protect sensitive production equipment from supply fluctuations</p>
+        </div>
+        <div class="project-badge">Power Quality</div>
+      </div>
+      <div class="project-body">
+        <div class="project-col">
+          <h5>// The Problem</h5>
+          <p>Voltage fluctuations from the utility supply — regularly swinging ±15% of nominal — were causing erratic behavior in variable speed drives, PLC processor resets, and premature motor insulation failure. The maintenance team was replacing motors at twice the expected lifecycle, and production stoppages from equipment trips were averaging 6 events per month. The root cause was unregulated incoming voltage feeding directly into sensitive automation panels.</p>
+        </div>
+        <div class="project-col">
+          <h5>// Approach &amp; Execution</h5>
+          <ul>
+            <li>Installed power quality analyser to characterise voltage profile over 30 days</li>
+            <li>Specified AVR units rated to handle recorded fluctuation envelope</li>
+            <li>Designed AVR placement strategy: upstream of critical automation loads</li>
+            <li>Integrated AVR status signals into existing SCADA for real-time alarm</li>
+            <li>Established voltage monitoring KPIs in CMMS for trending</li>
+            <li>Trained maintenance team on AVR operation and bypass procedures</li>
+          </ul>
+        </div>
+        <div class="project-col">
+          <h5>// Quantified Results</h5>
+          <div class="result-metrics">
+            <div class="metric">
+              <span class="metric-num">−85%</span>
+              <span class="metric-desc">Reduction in voltage-related equipment trips</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">2×</span>
+              <span class="metric-desc">Extension of average motor service life</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">30%</span>
+              <span class="metric-desc">Drop in unplanned downtime events (monthly)</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">↓25%</span>
+              <span class="metric-desc">Reduction in electrical maintenance spend</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tags-row">
+        <span class="tag">Power Quality Analysis</span>
+        <span class="tag">AVR Specification &amp; Installation</span>
+        <span class="tag">SCADA Integration</span>
+        <span class="tag">CMMS — IFS</span>
+        <span class="tag">Motor Protection</span>
+        <span class="tag">VSD Systems</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 03 -->
+    <div class="project-case">
+      <div class="project-header">
+        <div>
+          <div class="project-number">// PROJECT 03</div>
+          <h3 class="project-title">PLC/SCADA Automation &amp; Process Optimisation</h3>
+          <p class="project-tagline">Replacing manual process control with intelligent automation to achieve consistent throughput and 25% energy reduction</p>
+        </div>
+        <div class="project-badge">Industrial Automation</div>
+      </div>
+      <div class="project-body">
+        <div class="project-col">
+          <h5>// The Problem</h5>
+          <p>A production line operating on legacy relay-based control logic was bottlenecked by manual intervention at every stage. Operators were making real-time decisions based on experience rather than data, causing inconsistent cycle times and energy consumption peaks during changeovers. There was no centralised visibility into machine states, no alarm logging, and fault diagnosis required a specialist every time — adding 2–3 hours per fault event in lost production time.</p>
+        </div>
+        <div class="project-col">
+          <h5>// Approach &amp; Execution</h5>
+          <ul>
+            <li>Mapped existing relay logic and documented full process sequence</li>
+            <li>Migrated logic to Siemens S7-300 PLC with structured function blocks</li>
+            <li>Designed HMI screens for operator visibility and manual override</li>
+            <li>Built SCADA dashboards: real-time OEE, energy consumption, fault log</li>
+            <li>Programmed automatic sequencing to eliminate manual intervention points</li>
+            <li>Implemented alarm management system with prioritisation matrix</li>
+            <li>Ran 30-day parallel operation before full cutover</li>
+          </ul>
+        </div>
+        <div class="project-col">
+          <h5>// Quantified Results</h5>
+          <div class="result-metrics">
+            <div class="metric">
+              <span class="metric-num">25%</span>
+              <span class="metric-desc">Energy consumption reduction through optimised sequencing</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">−70%</span>
+              <span class="metric-desc">Fault diagnosis time (2–3hrs → under 30 mins)</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">↑18%</span>
+              <span class="metric-desc">Throughput increase from consistent cycle control</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">100%</span>
+              <span class="metric-desc">SCADA visibility across all critical process nodes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tags-row">
+        <span class="tag">Siemens S7-300 PLC</span>
+        <span class="tag">TIA Portal</span>
+        <span class="tag">SCADA / WinCC</span>
+        <span class="tag">HMI Design</span>
+        <span class="tag">OEE Monitoring</span>
+        <span class="tag">Alarm Management</span>
+        <span class="tag">Energy Monitoring</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">04 — Professional Experience</div>
+  <h2 class="section-title">A track record built on impact.</h2>
+  <p class="section-subtitle">Three organisations. Three distinct engineering environments. One consistent outcome: systems that perform better than before I arrived.</p>
+
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <span class="exp-company">Parkside Development Ltd</span>
+        <span class="exp-duration">Current Role</span>
+      </div>
+      <div class="exp-role">// Maintenance Lead / Operations Technical Coordinator — Nairobi, Kenya</div>
+      <ul class="exp-achievements">
+        <li>Spearheaded a <strong>facility-wide maintenance transformation</strong>, shifting from reactive breakdown response to a structured preventive and predictive model — reducing unplanned downtime by <strong>30% within 12 months</strong>.</li>
+        <li>Led installation and commissioning of <strong>correctly rated ACBs</strong> with protection relay coordination, eliminating cascade trips that had cost the facility an average of 4 production hours per event.</li>
+        <li>Deployed <strong>SCADA monitoring dashboards</strong> for critical utilities (electrical, compressed air, HVAC), enabling real-time fault response and historical trend analysis for the first time in the facility's operation.</li>
+        <li>Managed <strong>IFS CMMS</strong> implementation and maintenance workflow integration — standardising work orders, spare parts criticality ranking, and PM schedule adherence tracking across all engineering teams.</li>
+        <li>Maintained <strong>100% HSE &amp; LOTO compliance</strong> across all electrical maintenance activities; authored site-specific LOTO procedures and conducted quarterly safety audits with zero recordable incidents.</li>
+        <li>Oversaw <strong>AVR system implementation</strong> protecting automation panels from utility voltage fluctuations, extending motor lifespan and reducing electrical maintenance costs by 25%.</li>
+        <li>Coordinated with utility suppliers (KPLC) on <strong>power quality improvement interventions</strong>, including reactive power compensation and tariff optimisation strategies.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <span class="exp-company">Kim-Fay East Africa Ltd</span>
+        <span class="exp-duration">Previous Role</span>
+      </div>
+      <div class="exp-role">// Electrical Engineering Technician — Nairobi, Kenya</div>
+      <ul class="exp-achievements">
+        <li>Programmed and commissioned <strong>PLC automation sequences</strong> (Allen-Bradley &amp; Mitsubishi) for packaging and production lines, reducing changeover time by 20% and eliminating manual intervention points.</li>
+        <li>Conducted systematic <strong>electrical fault diagnosis</strong> on production equipment — applying structured RCA methodology to resolve recurring faults that had been treated symptomatically for over a year.</li>
+        <li>Executed <strong>planned electrical maintenance</strong> on switchgear, motors, drives, and control panels, maintaining line availability above OEM-recommended benchmarks.</li>
+        <li>Designed and installed <strong>HMI screens</strong> for operator visibility on three production lines, improving operator response time to fault conditions by 40%.</li>
+        <li>Performed <strong>energy consumption audits</strong> on compressed air systems and conveyor drives; implemented VFD control strategies that contributed to a facility-wide 25% energy reduction programme.</li>
+        <li>Developed and maintained <strong>electrical schematic documentation</strong> in AutoCAD Electrical, enabling faster onboarding of new technicians and reducing diagnostic time during breakdowns.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <span class="exp-company">Kenya Power &amp; Lighting Company (KPLC)</span>
+        <span class="exp-duration">Internship</span>
+      </div>
+      <div class="exp-role">// Electrical Engineering Intern — Kenya</div>
+      <ul class="exp-achievements">
+        <li>Gained hands-on exposure to <strong>MV/HV distribution network operations</strong>, including substation maintenance, transformer testing, and protection relay calibration.</li>
+        <li>Supported the distribution team in <strong>fault isolation and service restoration</strong> on 11kV and 33kV feeders, developing rapid fault-finding skills in live network environments.</li>
+        <li>Participated in <strong>safety induction and LOTO certification</strong> training — foundational to the rigorous safety culture I have maintained throughout my career.</li>
+        <li>Prepared <strong>technical reports</strong> on equipment condition assessments and contributed to substation inspection checklists used by the maintenance team.</li>
+        <li>Observed and documented <strong>metering and revenue protection</strong> inspection methodologies, building an understanding of utility-scale power management.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ TOOLS -->
+<section id="tools" style="background: var(--bg2); max-width:100%; padding: 0;">
+<div style="max-width:1200px; margin: 0 auto; padding: 7rem 4rem;">
+  <div class="section-label">05 — Tools &amp; Technologies</div>
+  <h2 class="section-title">My engineering toolkit.</h2>
+  <p class="section-subtitle" style="margin-bottom: 3rem;">Every tool selected for a purpose. Every platform chosen because it works under pressure.</p>
+
+  <div class="tools-grid">
+    <div class="tool-chip"><div class="tool-icon">🔵</div><div class="tool-name">Siemens S7 PLC</div></div>
+    <div class="tool-chip"><div class="tool-icon">🔴</div><div class="tool-name">Allen-Bradley PLC</div></div>
+    <div class="tool-chip"><div class="tool-icon">🟠</div><div class="tool-name">Mitsubishi PLC</div></div>
+    <div class="tool-chip"><div class="tool-icon">📊</div><div class="tool-name">SCADA / WinCC</div></div>
+    <div class="tool-chip"><div class="tool-icon">🖥️</div><div class="tool-name">TIA Portal</div></div>
+    <div class="tool-chip"><div class="tool-icon">⚡</div><div class="tool-name">ETAP</div></div>
+    <div class="tool-chip"><div class="tool-icon">📐</div><div class="tool-name">AutoCAD Electrical</div></div>
+    <div class="tool-chip"><div class="tool-icon">🔬</div><div class="tool-name">MATLAB / Simulink</div></div>
+    <div class="tool-chip"><div class="tool-icon">📋</div><div class="tool-name">IFS CMMS</div></div>
+    <div class="tool-chip"><div class="tool-icon">📈</div><div class="tool-name">MS Project</div></div>
+    <div class="tool-chip"><div class="tool-icon">🌡️</div><div class="tool-name">Thermographic Camera</div></div>
+    <div class="tool-chip"><div class="tool-icon">📡</div><div class="tool-name">Power Quality Analyser</div></div>
+    <div class="tool-chip"><div class="tool-icon">🔊</div><div class="tool-name">Vibration Analyser</div></div>
+    <div class="tool-chip"><div class="tool-icon">🔗</div><div class="tool-name">Profibus / Ethernet/IP</div></div>
+    <div class="tool-chip"><div class="tool-icon">⚙️</div><div class="tool-name">VFD / Drives</div></div>
+    <div class="tool-chip"><div class="tool-icon">🛡️</div><div class="tool-name">Protection Relays</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ CERTS -->
+<div id="certs">
+  <div class="certs-inner">
+    <div class="section-label">06 — Certifications &amp; Memberships</div>
+    <h2 class="section-title">Validated. Recognised. Committed.</h2>
+    <p class="section-subtitle" style="margin-bottom: 3rem;">Credentials that reflect ongoing investment in professional standards and engineering excellence.</p>
+
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-issuer">IET-K — Institution of Engineering Technician & Technologist</div>
+        <div class="cert-name">Graduate Engineering Technologist  Registration</div>
+        <div class="cert-year">Active Membership</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Siemens</div>
+        <div class="cert-name">SIMATIC S7 PLC Programming — TIA Portal</div>
+        <div class="cert-year">Technical proficiency</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Viscar Industrial Capacity Limited/ Kenya </div>
+        <div class="cert-name">Occupational Safety &amp; Health — Electrical Work</div>
+        <div class="cert-year"></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">NFPA / Internal</div>
+        <div class="cert-name">LOTO (Lockout/Tagout) Authorised Practitioner</div>
+        <div class="cert-year">Workplace Safety</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">IFS / Internal</div>
+        <div class="cert-name">CMMS Administration &amp; Maintenance Planning</div>
+        <div class="cert-year"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ CONTACT -->
+<section id="contact" style="max-width: 100%; text-align: center; padding: 8rem 4rem; background: var(--bg2); position: relative; z-index:1; border-top: 1px solid var(--border);">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div class="section-label" style="justify-content: center;">07 — Let's Work Together</div>
+    <h2 class="contact-headline">Have a system<br>that needs <span>fixing?</span></h2>
+    <p class="contact-sub">Whether you're planning a SCADA upgrade, investigating recurring downtime, or building out an electrical maintenance programme — I'd like to hear about it.</p>
+
+    <a href="mailto:gideon.kitum@email.com" class="btn-primary" style="display: inline-block; margin-bottom: 2rem;">Send Me a Message</a>
+
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:gideon.kitum@email.com">📧 gideon.kitum@email.com</a>
+            <a class="contact-link" href="#">📍 Nairobi, Kenya</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <p>© 2024 Gideon Kipkosgei Kitum — All rights reserved</p>
+  <p>Electrical &amp; Automation Engineer — Nairobi, Kenya</p>
+  <p style="color: var(--accent);">Built with precision. Maintained with discipline.</p>
+</footer>
+
+<script>
+  // Animate sections on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.skill-category, .project-case, .exp-item, .cert-card, .tool-chip').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Animate stat numbers
+  function animateNumber(el, target, suffix = '') {
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.round(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const nums = entry.target.querySelectorAll('.stat-number');
+        nums.forEach(n => {
+          const text = n.textContent;
+          const num = parseInt(text);
+          const suffix = text.replace(/[0-9]/g, '');
+          if (!isNaN(num)) animateNumber(n, num, suffix);
+        });
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
+</script>
+
+</body>
+</html>
